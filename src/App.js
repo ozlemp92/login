@@ -5,16 +5,20 @@ import Login from './component/Login';
 import Routes from './component/Route';
 
 class App extends Component{
-  constructor(props) 
-  {
-    super(props); 
+  constructor(props) {
+    super(props);
+  
     this.state = {
       isAuthenticated: false
     };
-   userHasAuthenticated = authenticated => {
+    
+  }
+  
+  userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
-}
+  
+
 render()
 {
   const childProps = {

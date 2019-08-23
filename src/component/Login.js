@@ -23,10 +23,12 @@ export default class Login extends Component {
     }
   
     handleSubmit = event => {
+        debugger;
       event.preventDefault();
       try {
-        await Auth.signIn(this.state.email, this.state.password);
-        alert("Logged in");
+         Auth.signIn(this.state.email, this.state.password);
+        this.props.userHasAuthenticated(true);
+        this.props.history.push("/otherPage");
       } catch (e) {
         alert(e.message);
       }
@@ -63,6 +65,6 @@ export default class Login extends Component {
             </Button>
           </form>
         </div>
-      );
+      )
     }
   }

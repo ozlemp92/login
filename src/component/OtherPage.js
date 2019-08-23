@@ -8,17 +8,19 @@ export default class Login extends Component {
     }
     componentDidMount()
     {
+        debugger;
         if(!this.props.isAuthenticated)
         {
-            this.props.history.push("/login");
+            debugger;
+            this.props.history.push("/login")
         }
     }
     render() {
       return (
         <div className="Login">     
-              <label>Email</label>  
-              <label>Password</label>
+              <label>otherpagee</label>  
+              <label>sggsg</label>
         </div>
-      );
+      )
     }
   }
