@@ -8,10 +8,19 @@ export default class Login extends Component {
   
       this.state = {
         email: "",
-        password: ""
+        password: "",
+        user:null
       };
     }
-  
+    componentDidMount()
+    {
+        debugger;
+        let user = JSON.parse(localStorage.getItem('user'));
+        if(user == null)
+        {
+            this.props.history.push("/login")
+        }
+    }
     validateForm() {
       return this.state.email.length > 0 && this.state.password.length > 0;
     }
@@ -28,6 +37,8 @@ export default class Login extends Component {
       try {
          Auth.signIn(this.state.email, this.state.password);
         this.props.userHasAuthenticated(true);
+        let user = this.state.email+ this.state.password;
+        localStorage.setItem('user', JSON.stringify(user));
         this.props.history.push("/otherPage");
       } catch (e) {
         alert(e.message);
