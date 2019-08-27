@@ -16,10 +16,12 @@ export default class Login extends Component {
     {
         debugger;
         let user = JSON.parse(localStorage.getItem('user'));
-        if(user == null)
+        if(user != null)
         {
-            this.props.history.push("/login")
+          debugger;
+                    this.props.history.push(this.props.location);
         }
+        else  this.props.history.push(this.props.location);
     }
     validateForm() {
       return this.state.email.length > 0 && this.state.password.length > 0;

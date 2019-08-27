@@ -12,11 +12,13 @@ export default class Login extends Component {
     {
         debugger;
         let user = JSON.parse(localStorage.getItem('user'));
-        if(user == null)
+        if(user != null)
         {
             debugger;
-            this.props.history.push("/login")
+            // const { from } = this.props.location.state || { from: { pathname: "/" } };
+                    this.props.history.push(this.props.location);
         }
+        else  this.props.history.push(this.props.location);
     }
     handleLogOutSubmit() {
       debugger;
